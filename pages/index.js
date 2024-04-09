@@ -60,31 +60,25 @@ export default function Home() {
                 align-items: center;
                 font-size: 24px;
                 background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2)); /* Gradient for lighting effect */
+                transform-style: preserve-3d; /* Preserve 3D effect */
+                backface-visibility: hidden; /* Hide back face during rotation */
             }
 
             /* Faces of the die */
-            .green .front {
-                background-color: #6ab04c; /* Green */
-                color: black;
-                transform: rotateY(0deg) translateZ(50px);
+            .green {
+                transform: rotateX(0deg) rotateY(0deg); /* Initial position */
             }
 
-            .blue .front {
-                background-color: #00a0d6; /* Blue */
-                color: black;
-                transform: rotateY(0deg) translateZ(50px);
+            .blue {
+                transform: rotateX(0deg) rotateY(90deg); /* Initial position */
             }
 
-            .red .front {
-                background-color: #d60000; /* Red */
-                color: black;
-                transform: rotateY(0deg) translateZ(50px);
+            .red {
+                transform: rotateX(0deg) rotateY(180deg); /* Initial position */
             }
 
-            .yellow .front {
-                background-color: #ffd700; /* Yellow */
-                color: black;
-                transform: rotateY(0deg) translateZ(50px);
+            .yellow {
+                transform: rotateX(0deg) rotateY(-90deg); /* Initial position */
             }
         `}</style>
       </Head>
@@ -93,7 +87,7 @@ export default function Home() {
         <Header title="Welcome to my app!" />
         <div className="die-container">
           {/* Green Die */}
-          <div className="die green" onClick={() => rollDie(this)}>
+          <div className="die green" onClick={(e) => rollDie(e.target)}>
             <div className="face front">4</div>
             <div className="face back">4</div>
             <div className="face right">4</div>
@@ -103,7 +97,7 @@ export default function Home() {
           </div>
 
           {/* Blue Die */}
-          <div className="die blue" onClick={() => rollDie(this)}>
+          <div className="die blue" onClick={(e) => rollDie(e.target)}>
             <div className="face front">3</div>
             <div className="face back">3</div>
             <div className="face right">3</div>
@@ -113,7 +107,7 @@ export default function Home() {
           </div>
 
           {/* Red Die */}
-          <div className="die red" onClick={() => rollDie(this)}>
+          <div className="die red" onClick={(e) => rollDie(e.target)}>
             <div className="face front">2</div>
             <div className="face back">2</div>
             <div className="face right">6</div>
@@ -123,7 +117,7 @@ export default function Home() {
           </div>
 
           {/* Yellow Die */}
-          <div className="die yellow" onClick={() => rollDie(this)}>
+          <div className="die yellow" onClick={(e) => rollDie(e.target)}>
             <div className="face front">5</div>
             <div className="face back">1</div>
             <div className="face right">5</div>
