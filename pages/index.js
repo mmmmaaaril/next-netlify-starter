@@ -79,12 +79,12 @@ export default function Home() {
             }
 
             /* Set individual positions for each face */
-            .front { transform: rotateX(90deg) translateZ(50px); }
-            .back { transform: rotateX(-90deg) translateZ(50px); }
+            .front { transform: translateZ(50px); }
+            .back { transform: rotateY(180deg) translateZ(50px); }
             .right { transform: rotateY(90deg) translateZ(50px); }
             .left { transform: rotateY(-90deg) translateZ(50px); }
-            .top { transform: rotateY(180deg) rotateZ(90deg) translateZ(50px); }
-            .bottom { transform: rotateY(180deg) rotateZ(-90deg) translateZ(50px); }
+            .top { transform: rotateX(90deg) translateZ(50px); }
+            .bottom { transform: rotateX(-90deg) translateZ(50px); }
         `}</style>
       </Head>
 
