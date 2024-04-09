@@ -54,6 +54,7 @@ export default function Home() {
                 transform-style: preserve-3d; /* Apply 3D transforms to children */
                 cursor: pointer;
                 transition: transform 1s ease-out; /* Transition for rolling animation */
+                background-color: transparent; /* Transparent background color */
             }
 
             .face {
@@ -101,11 +102,6 @@ export default function Home() {
             }
             .bottom {
               transform: rotateX(-90deg) translateZ(50px);
-            }
-
-            /* On hover effect */
-            .die:hover {
-                transform: scale(1.1); /* Enlarge on hover */
             }
         `}</style>
       </Head>
