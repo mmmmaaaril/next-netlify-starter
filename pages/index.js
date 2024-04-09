@@ -54,6 +54,7 @@ export default function Home() {
                 transform-style: preserve-3d; /* Apply 3D transforms to children */
                 cursor: pointer;
                 transition: transform 1s ease-out; /* Transition for rolling animation */
+                background-color: #fff;
             }
 
             .face {
@@ -72,16 +73,16 @@ export default function Home() {
 
             /* Faces of the die */
             .green {
-                background-color: #6ab04c; /* Green */
+                background-color: rgb(27, 214, 17); /* Green */
             }
             .blue {
-                background-color: #00a0d6; /* Blue */
+                background-color: rgb(45, 72, 250); /* Blue */
             }
             .red {
-                background-color: #d60000; /* Red */
+                background-color: rgb(245, 2, 2); /* Red */
             }
             .yellow {
-                background-color: #ffd700; /* Yellow */
+                background-color: rgb(250, 221, 5); /* Yellow */
             }
 
             .front {
