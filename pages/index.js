@@ -62,14 +62,14 @@ export default function Home() {
                 cursor: pointer;
                 transition: transform 1s ease-out; /* Transition for rolling animation */
                 background-color: transparent; /* Transparent background color */
-            }
+              }
 
             .face {
                 position: absolute;
                 width: 100%;
                 height: 100%;
                 border: 2px solid black;
-                display: none;
+                display: flex;
                 justify-content: center;
                 align-items: center;
                 font-size: 24px;
@@ -77,6 +77,7 @@ export default function Home() {
                 color: white;
                 font-family: 'Roboto Serif', serif; /* Use Roboto Serif Black font */
                 text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Black outline */
+                display: none; /* Initially hide faces */
               }
 
             .green { background-color: rgb(27, 214, 17); }
