@@ -10,11 +10,11 @@ export default function Home() {
     if (rolling) return; // Prevent rolling while animation is in progress
     setRolling(true);
     var result = Math.floor(Math.random() * 6) + 1; // Generate a random side index
-    var animationDuration = 2000; // Duration of the rolling animation in milliseconds
+    var animationDuration = 1000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
 
     // Apply rolling animation
-    die.style.transition = 'transform ' + animationDuration / 1000 + 's cubic-bezier(0.6, 0.05, 0.28, 0.91)'; // Use cubic-bezier for realistic tumbling
+    die.style.transition = 'transform ' + animationDuration / 1000 + 's ease-out';
     die.style.transform = 'rotateX(' + (360 * 5) + 'deg) rotateY(' + (360 * 5) + 'deg)'; // Rotate the die multiple times
 
     setTimeout(function () {
@@ -44,7 +44,7 @@ export default function Home() {
         <title>Dice Widget</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Titania&display=swap" rel="stylesheet" />
         <style>{`
             .die-container {
                 perspective: 1000px; /* Perspective for 3D effect */
@@ -60,7 +60,7 @@ export default function Home() {
                 position: relative;
                 transform-style: preserve-3d; /* Apply 3D transforms to children */
                 cursor: pointer;
-                transition: transform 2s cubic-bezier(0.6, 0.05, 0.28, 0.91); /* Custom cubic-bezier for more realistic tumbling */
+                transition: transform 1s ease-out; /* Transition for rolling animation */
                 background-color: transparent; /* Transparent background color */
             }
 
