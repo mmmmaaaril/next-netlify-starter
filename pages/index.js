@@ -4,7 +4,7 @@ import Footer from '@components/Footer';
 
 export default function Home() {
   const rollDie = (die) => {
-    var result = Math.floor(Math.random() * 6); // Generate a random side index
+    var result = Math.floor(Math.random() * 6) + 1; // Generate a random side index
     var animationDuration = 1000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
 
@@ -14,7 +14,13 @@ export default function Home() {
 
     setTimeout(function() {
         // Update the text content of the front face with the rolled value
-        die.querySelector('.front').textContent = faces[result].textContent;
+        faces.forEach((face, index) => {
+          if (index === result - 1) {
+            face.style.display = 'flex';
+          } else {
+            face.style.display = 'none';
+          }
+        });
         // Reset the rotation and transition properties after the animation
         die.style.transition = '';
         die.style.transform = '';
@@ -22,7 +28,7 @@ export default function Home() {
 
     // Display the rolled value after a short delay to match the animation duration
     setTimeout(function() {
-        alert('Rolled: ' + faces[result].textContent);
+        alert('Rolled: ' + result); // Display result
     }, animationDuration);
   };
 
@@ -60,15 +66,47 @@ export default function Home() {
                 align-items: center;
                 font-size: 24px;
                 background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2)); /* Gradient for lighting effect */
+                transform-style: preserve-3d; /* Preserve 3D effect */
+                backface-visibility: hidden; /* Hide back face during rotation */
             }
 
             /* Faces of the die */
-            .green .front {
+            .green {
                 background-color: #6ab04c; /* Green */
-                color: black;
-                transform: rotateY(0deg) translateZ(50px);
             }
-            /* other colors and faces here */
+            .blue {
+                background-color: #00a0d6; /* Blue */
+            }
+            .red {
+                background-color: #d60000; /* Red */
+            }
+            .yellow {
+                background-color: #ffd700; /* Yellow */
+            }
+
+            .front {
+              transform: translateZ(50px);
+            }
+            .back {
+              transform: rotateY(180deg) translateZ(50px);
+            }
+            .right {
+              transform: rotateY(90deg) translateZ(50px);
+            }
+            .left {
+              transform: rotateY(-90deg) translateZ(50px);
+            }
+            .top {
+              transform: rotateX(90deg) translateZ(50px);
+            }
+            .bottom {
+              transform: rotateX(-90deg) translateZ(50px);
+            }
+
+            /* On hover effect */
+            .die:hover {
+                transform: scale(1.1); /* Enlarge on hover */
+            }
         `}</style>
       </Head>
 
@@ -76,43 +114,43 @@ export default function Home() {
         <Header title="Welcome to my app!" />
         <div className="die-container">
           {/* Green Die */}
-          <div className="die green" onClick={() => rollDie(this)}>
-            <div className="face front">4</div>
-            <div className="face back">4</div>
-            <div className="face right">4</div>
-            <div className="face left">4</div>
-            <div className="face top">0</div>
-            <div className="face bottom">0</div>
+          <div className="die green" onClick={(e) => rollDie(e.target)}>
+            <div className="face front">1</div>
+            <div className="face back">6</div>
+            <div className="face right">2</div>
+            <div className="face left">5</div>
+            <div className="face top">3</div>
+            <div className="face bottom">4</div>
           </div>
 
           {/* Blue Die */}
-          <div className="die blue" onClick={() => rollDie(this)}>
-            <div className="face front">3</div>
-            <div className="face back">3</div>
-            <div className="face right">3</div>
-            <div className="face left">3</div>
+          <div className="die blue" onClick={(e) => rollDie(e.target)}>
+            <div className="face front">1</div>
+            <div className="face back">6</div>
+            <div className="face right">2</div>
+            <div className="face left">5</div>
             <div className="face top">3</div>
-            <div className="face bottom">3</div>
+            <div className="face bottom">4</div>
           </div>
 
           {/* Red Die */}
-          <div className="die red" onClick={() => rollDie(this)}>
-            <div className="face front">2</div>
-            <div className="face back">2</div>
-            <div className="face right">6</div>
-            <div className="face left">2</div>
-            <div className="face top">2</div>
-            <div className="face bottom">6</div>
+          <div className="die red" onClick={(e) => rollDie(e.target)}>
+            <div className="face front">1</div>
+            <div className="face back">6</div>
+            <div className="face right">2</div>
+            <div className="face left">5</div>
+            <div className="face top">3</div>
+            <div className="face bottom">4</div>
           </div>
 
           {/* Yellow Die */}
-          <div className="die yellow" onClick={() => rollDie(this)}>
-            <div className="face front">5</div>
-            <div className="face back">1</div>
-            <div className="face right">5</div>
-            <div className="face left">1</div>
-            <div className="face top">5</div>
-            <div className="face bottom">1</div>
+          <div className="die yellow" onClick={(e) => rollDie(e.target)}>
+            <div className="face front">1</div>
+            <div className="face back">6</div>
+            <div className="face right">2</div>
+            <div className="face left">5</div>
+            <div className="face top">3</div>
+            <div className="face bottom">4</div>
           </div>
         </div>
       </main>
