@@ -14,7 +14,13 @@ export default function Home() {
 
     setTimeout(function() {
         // Update the text content of the front face with the rolled value
-        die.querySelector('.front').textContent = faces[result].textContent;
+        faces.forEach((face, index) => {
+          if (index === result) {
+            face.style.display = 'flex';
+          } else {
+            face.style.display = 'none';
+          }
+        });
         // Reset the rotation and transition properties after the animation
         die.style.transition = '';
         die.style.transform = '';
@@ -22,7 +28,7 @@ export default function Home() {
 
     // Display the rolled value after a short delay to match the animation duration
     setTimeout(function() {
-        alert('Rolled: ' + faces[result].textContent);
+        alert('Rolled: ' + (result + 1)); // Display result (adding 1 to match dice numbering)
     }, animationDuration);
   };
 
@@ -62,34 +68,22 @@ export default function Home() {
                 background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2)); /* Gradient for lighting effect */
                 transform-style: preserve-3d; /* Preserve 3D effect */
                 backface-visibility: hidden; /* Hide back face during rotation */
+                display: none; // Initially hide all faces
             }
 
             /* Faces of the die */
             .green .front {
                 background-color: #6ab04c; /* Green */
             }
-            .green .back {
-                background-color: #6ab04c; /* Green */
-                transform: rotateY(180deg) translateZ(50px);
+            .blue .front {
+                background-color: #00a0d6; /* Blue */
             }
-            .green .right {
-                background-color: #6ab04c; /* Green */
-                transform: rotateY(90deg) translateZ(50px);
+            .red .front {
+                background-color: #d60000; /* Red */
             }
-            .green .left {
-                background-color: #6ab04c; /* Green */
-                transform: rotateY(-90deg) translateZ(50px);
+            .yellow .front {
+                background-color: #ffd700; /* Yellow */
             }
-            .green .top {
-                background-color: #6ab04c; /* Green */
-                transform: rotateX(90deg) translateZ(50px);
-            }
-            .green .bottom {
-                background-color: #6ab04c; /* Green */
-                transform: rotateX(-90deg) translateZ(50px);
-            }
-
-            /* Similar styles for other colors */
 
             /* On hover effect */
             .die:hover {
@@ -103,42 +97,42 @@ export default function Home() {
         <div className="die-container">
           {/* Green Die */}
           <div className="die green" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">4</div>
-            <div className="face back">4</div>
-            <div className="face right">4</div>
-            <div className="face left">4</div>
-            <div className="face top">0</div>
-            <div className="face bottom">0</div>
+            <div className="face front">1</div>
+            <div className="face back">6</div>
+            <div className="face right">2</div>
+            <div className="face left">5</div>
+            <div className="face top">3</div>
+            <div className="face bottom">4</div>
           </div>
 
           {/* Blue Die */}
           <div className="die blue" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">3</div>
-            <div className="face back">3</div>
-            <div className="face right">3</div>
-            <div className="face left">3</div>
+            <div className="face front">1</div>
+            <div className="face back">6</div>
+            <div className="face right">2</div>
+            <div className="face left">5</div>
             <div className="face top">3</div>
-            <div className="face bottom">3</div>
+            <div className="face bottom">4</div>
           </div>
 
           {/* Red Die */}
           <div className="die red" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">2</div>
-            <div className="face back">2</div>
-            <div className="face right">6</div>
-            <div className="face left">2</div>
-            <div className="face top">2</div>
-            <div className="face bottom">6</div>
+            <div className="face front">1</div>
+            <div className="face back">6</div>
+            <div className="face right">2</div>
+            <div className="face left">5</div>
+            <div className="face top">3</div>
+            <div className="face bottom">4</div>
           </div>
 
           {/* Yellow Die */}
           <div className="die yellow" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">5</div>
-            <div className="face back">1</div>
-            <div className="face right">5</div>
-            <div className="face left">1</div>
-            <div className="face top">5</div>
-            <div className="face bottom">1</div>
+            <div className="face front">1</div>
+            <div className="face back">6</div>
+            <div className="face right">2</div>
+            <div className="face left">5</div>
+            <div className="face top">3</div>
+            <div className="face bottom">4</div>
           </div>
         </div>
       </main>
