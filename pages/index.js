@@ -68,20 +68,19 @@ export default function Home() {
                 background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2)); /* Gradient for lighting effect */
                 transform-style: preserve-3d; /* Preserve 3D effect */
                 backface-visibility: hidden; /* Hide back face during rotation */
-                display: flex; // Display all faces initially
             }
 
             /* Faces of the die */
-            .green .front {
+            .green {
                 background-color: #6ab04c; /* Green */
             }
-            .blue .front {
+            .blue {
                 background-color: #00a0d6; /* Blue */
             }
-            .red .front {
+            .red {
                 background-color: #d60000; /* Red */
             }
-            .yellow .front {
+            .yellow {
                 background-color: #ffd700; /* Yellow */
             }
 
