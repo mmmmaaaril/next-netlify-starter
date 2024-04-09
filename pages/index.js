@@ -10,7 +10,7 @@ export default function Home() {
     if (rolling) return; // Prevent rolling while animation is in progress
     setRolling(true);
     var result = Math.floor(Math.random() * 6) + 1; // Generate a random side index
-    var animationDuration = 1000; // Duration of the rolling animation in milliseconds
+    var animationDuration = 2000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
 
     // Apply rolling animation
