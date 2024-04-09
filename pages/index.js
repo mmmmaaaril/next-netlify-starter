@@ -65,28 +65,35 @@ export default function Home() {
             }
 
             /* Faces of the die */
-            .front {
-                transform: translateZ(50px); /* Move to front */
+            .green .front {
+                background-color: #6ab04c; /* Green */
+            }
+            .green .back {
+                background-color: #6ab04c; /* Green */
+                transform: rotateY(180deg) translateZ(50px);
+            }
+            .green .right {
+                background-color: #6ab04c; /* Green */
+                transform: rotateY(90deg) translateZ(50px);
+            }
+            .green .left {
+                background-color: #6ab04c; /* Green */
+                transform: rotateY(-90deg) translateZ(50px);
+            }
+            .green .top {
+                background-color: #6ab04c; /* Green */
+                transform: rotateX(90deg) translateZ(50px);
+            }
+            .green .bottom {
+                background-color: #6ab04c; /* Green */
+                transform: rotateX(-90deg) translateZ(50px);
             }
 
-            .back {
-                transform: rotateY(180deg) translateZ(50px); /* Move to back */
-            }
+            /* Similar styles for other colors */
 
-            .right {
-                transform: rotateY(90deg) translateZ(50px); /* Move to right */
-            }
-
-            .left {
-                transform: rotateY(-90deg) translateZ(50px); /* Move to left */
-            }
-
-            .top {
-                transform: rotateX(90deg) translateZ(50px); /* Move to top */
-            }
-
-            .bottom {
-                transform: rotateX(-90deg) translateZ(50px); /* Move to bottom */
+            /* On hover effect */
+            .die:hover {
+                transform: scale(1.1); /* Enlarge on hover */
             }
         `}</style>
       </Head>
