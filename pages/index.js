@@ -76,7 +76,6 @@ export default function Home() {
                 color: white;
                 font-family: 'Roboto Serif', serif; /* Use Roboto Serif Black font */
                 text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Black outline */
-                display: none; /* Initially hide faces */
             }
 
             /* Set individual positions for each face */
