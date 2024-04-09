@@ -80,38 +80,6 @@ export default function Home() {
                 display: none; /* Initially hide faces */
               }
 
-            /* Green Die */
-            .green .front { background-color: rgb(27, 214, 17); }
-            .green .back { background-color: rgb(27, 214, 17); }
-            .green .right { background-color: rgb(27, 214, 17); }
-            .green .left { background-color: rgb(27, 214, 17); }
-            .green .top { background-color: rgb(27, 214, 17); }
-            .green .bottom { background-color: rgb(27, 214, 17); }
-
-            /* Blue Die */
-            .blue .front { background-color: rgb(45, 72, 250); }
-            .blue .back { background-color: rgb(45, 72, 250); }
-            .blue .right { background-color: rgb(45, 72, 250); }
-            .blue .left { background-color: rgb(45, 72, 250); }
-            .blue .top { background-color: rgb(45, 72, 250); }
-            .blue .bottom { background-color: rgb(45, 72, 250); }
-
-            /* Red Die */
-            .red .front { background-color: rgb(245, 2, 2); }
-            .red .back { background-color: rgb(245, 2, 2); }
-            .red .right { background-color: rgb(245, 2, 2); }
-            .red .left { background-color: rgb(245, 2, 2); }
-            .red .top { background-color: rgb(245, 2, 2); }
-            .red .bottom { background-color: rgb(245, 2, 2); }
-
-            /* Yellow Die */
-            .yellow .front { background-color: rgb(250, 221, 5); }
-            .yellow .back { background-color: rgb(250, 221, 5); }
-            .yellow .right { background-color: rgb(250, 221, 5); }
-            .yellow .left { background-color: rgb(250, 221, 5); }
-            .yellow .top { background-color: rgb(250, 221, 5); }
-            .yellow .bottom { background-color: rgb(250, 221, 5); }
-
             /* Set individual positions for each face */
             .front { transform: translateZ(50px); }
             .back { transform: rotateY(180deg) translateZ(50px); }
@@ -119,11 +87,6 @@ export default function Home() {
             .left { transform: rotateY(-90deg) translateZ(50px); }
             .top { transform: rotateX(90deg) translateZ(50px); }
             .bottom { transform: rotateX(-90deg) translateZ(50px); }
-
-            /* On hover effect */
-            .die:hover {
-                transform: scale(1.1); /* Enlarge on hover */
-            }
         `}</style>
       </Head>
 
@@ -131,43 +94,43 @@ export default function Home() {
         <Header title="Welcome to my app!" />
         <div className="die-container">
           {/* Green Die */}
-          <div className="die green" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">1</div>
-            <div className="face back">6</div>
-            <div className="face right">2</div>
-            <div className="face left">5</div>
-            <div className="face top">3</div>
-            <div className="face bottom">4</div>
+          <div className="die" onClick={(e) => rollDie(e.target)}>
+            <div className="face front" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>1</div>
+            <div className="face back" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>6</div>
+            <div className="face right" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>2</div>
+            <div className="face left" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>5</div>
+            <div className="face top" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>3</div>
+            <div className="face bottom" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>4</div>
           </div>
 
           {/* Blue Die */}
-          <div className="die blue" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">1</div>
-            <div className="face back">6</div>
-            <div className="face right">2</div>
-            <div className="face left">5</div>
-            <div className="face top">3</div>
-            <div className="face bottom">4</div>
+          <div className="die" onClick={(e) => rollDie(e.target)}>
+            <div className="face front" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>1</div>
+            <div className="face back" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>6</div>
+            <div className="face right" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>2</div>
+            <div className="face left" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>5</div>
+            <div className="face top" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>3</div>
+            <div className="face bottom" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>4</div>
           </div>
 
           {/* Red Die */}
-          <div className="die red" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">1</div>
-            <div className="face back">6</div>
-            <div className="face right">2</div>
-            <div className="face left">5</div>
-            <div className="face top">3</div>
-            <div className="face bottom">4</div>
+          <div className="die" onClick={(e) => rollDie(e.target)}>
+            <div className="face front" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>1</div>
+            <div className="face back" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>6</div>
+            <div className="face right" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>2</div>
+            <div className="face left" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>5</div>
+            <div className="face top" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>3</div>
+            <div className="face bottom" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>4</div>
           </div>
 
           {/* Yellow Die */}
-          <div className="die yellow" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">1</div>
-            <div className="face back">6</div>
-            <div className="face right">2</div>
-            <div className="face left">5</div>
-            <div className="face top">3</div>
-            <div className="face bottom">4</div>
+          <div className="die" onClick={(e) => rollDie(e.target)}>
+            <div className="face front" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>1</div>
+            <div className="face back" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>6</div>
+            <div className="face right" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>2</div>
+            <div className="face left" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>5</div>
+            <div className="face top" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>3</div>
+            <div className="face bottom" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>4</div>
           </div>
         </div>
       </main>
@@ -176,4 +139,3 @@ export default function Home() {
     </div>
   );
 }
-
