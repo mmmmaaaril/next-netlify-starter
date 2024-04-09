@@ -1,148 +1,231 @@
-import Head from 'next/head';
-import Header from '@components/Header';
-import Footer from '@components/Footer';
-import { useState } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dice Widget</title>
+<style>
+    .die-container {
+        perspective: 1000px; /* Perspective for 3D effect */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
-export default function Home() {
-  const [rolling, setRolling] = useState(false);
+    .die {
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        position: relative;
+        transform-style: preserve-3d; /* Apply 3D transforms to children */
+        cursor: pointer;
+        transition: transform 1s ease-out; /* Transition for rolling animation */
+    }
 
-  const rollDie = (die) => {
-    if (rolling) return; // Prevent rolling while animation is in progress
-    setRolling(true);
-    var result = Math.floor(Math.random() * 6) + 1; // Generate a random side index
+    .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2)); /* Gradient for lighting effect */
+    }
+
+    /* Faces of the die */
+    .green .front {
+        background-color: #6ab04c; /* Green */
+        color: black;
+        transform: rotateY(0deg) translateZ(50px);
+    }
+    .green .back {
+        background-color: #6ab04c; /* Green */
+        color: black;
+        transform: rotateY(180deg) translateZ(50px);
+    }
+    .green .right {
+        background-color: #6ab04c; /* Green */
+        color: black;
+        transform: rotateY(90deg) translateZ(50px);
+    }
+    .green .left {
+        background-color: #6ab04c; /* Green */
+        color: black;
+        transform: rotateY(-90deg) translateZ(50px);
+    }
+    .green .top {
+        background-color: #6ab04c; /* Green */
+        color: black;
+        transform: rotateX(90deg) translateZ(50px);
+    }
+    .green .bottom {
+        background-color: #6ab04c; /* Green */
+        color: black;
+        transform: rotateX(-90deg) translateZ(50px);
+    }
+
+    .blue .front {
+        background-color: #00a0d6; /* Blue */
+        color: black;
+        transform: rotateY(0deg) translateZ(50px);
+    }
+    .blue .back {
+        background-color: #00a0d6; /* Blue */
+        color: black;
+        transform: rotateY(180deg) translateZ(50px);
+    }
+    .blue .right {
+        background-color: #00a0d6; /* Blue */
+        color: black;
+        transform: rotateY(90deg) translateZ(50px);
+    }
+    .blue .left {
+        background-color: #00a0d6; /* Blue */
+        color: black;
+        transform: rotateY(-90deg) translateZ(50px);
+    }
+    .blue .top {
+        background-color: #00a0d6; /* Blue */
+        color: black;
+        transform: rotateX(90deg) translateZ(50px);
+    }
+    .blue .bottom {
+        background-color: #00a0d6; /* Blue */
+        color: black;
+        transform: rotateX(-90deg) translateZ(50px);
+    }
+
+    .red .front {
+        background-color: #d60000; /* Red */
+        color: black;
+        transform: rotateY(0deg) translateZ(50px);
+    }
+    .red .back {
+        background-color: #d60000; /* Red */
+        color: black;
+        transform: rotateY(180deg) translateZ(50px);
+    }
+    .red .right {
+        background-color: #d60000; /* Red */
+        color: black;
+        transform: rotateY(90deg) translateZ(50px);
+    }
+    .red .left {
+        background-color: #d60000; /* Red */
+        color: black;
+        transform: rotateY(-90deg) translateZ(50px);
+    }
+    .red .top {
+        background-color: #d60000; /* Red */
+        color: black;
+        transform: rotateX(90deg) translateZ(50px);
+    }
+    .red .bottom {
+        background-color: #d60000; /* Red */
+        color: black;
+        transform: rotateX(-90deg) translateZ(50px);
+    }
+
+    .yellow .front {
+        background-color: #ffd700; /* Yellow */
+        color: black;
+        transform: rotateY(0deg) translateZ(50px);
+    }
+    .yellow .back {
+        background-color: #ffd700; /* Yellow */
+        color: black;
+        transform: rotateY(180deg) translateZ(50px);
+    }
+    .yellow .right {
+        background-color: #ffd700; /* Yellow */
+        color: black;
+        transform: rotateY(90deg) translateZ(50px);
+    }
+    .yellow .left {
+        background-color: #ffd700; /* Yellow */
+        color: black;
+        transform: rotateY(-90deg) translateZ(50px);
+    }
+    .yellow .top {
+        background-color: #ffd700; /* Yellow */
+        color: black;
+        transform: rotateX(90deg) translateZ(50px);
+    }
+    .yellow .bottom {
+        background-color: #ffd700; /* Yellow */
+        color: black;
+        transform: rotateX(-90deg) translateZ(50px);
+    }
+</style>
+</head>
+<body>
+<div class="die-container">
+    <!-- Green Die -->
+    <div class="die green" onclick="rollDie(this)">
+        <div class="face front">4</div>
+        <div class="face back">4</div>
+        <div class="face right">4</div>
+        <div class="face left">4</div>
+        <div class="face top">0</div>
+        <div class="face bottom">0</div>
+    </div>
+
+    <!-- Blue Die -->
+    <div class="die blue" onclick="rollDie(this)">
+        <div class="face front">3</div>
+        <div class="face back">3</div>
+        <div class="face right">3</div>
+        <div class="face left">3</div>
+        <div class="face top">3</div>
+        <div class="face bottom">3</div>
+    </div>
+
+    <!-- Red Die -->
+    <div class="die red" onclick="rollDie(this)">
+        <div class="face front">2</div>
+        <div class="face back">2</div>
+        <div class="face right">6</div>
+        <div class="face left">2</div>
+        <div class="face top">2</div>
+        <div class="face bottom">6</div>
+    </div>
+
+    <!-- Yellow Die -->
+    <div class="die yellow" onclick="rollDie(this)">
+        <div class="face front">5</div>
+        <div class="face back">1</div>
+        <div class="face right">5</div>
+        <div class="face left">1</div>
+        <div class="face top">5</div>
+        <div class="face bottom">1</div>
+    </div>
+</div>
+
+<script>
+function rollDie(die) {
+    var result = Math.floor(Math.random() * 6); // Generate a random side index
     var animationDuration = 1000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
 
     // Apply rolling animation
     die.style.transition = 'transform ' + animationDuration / 1000 + 's ease-out';
-    die.style.transform = 'rotateX(' + (360 * 5) + 'deg) rotateY(' + (360 * 5) + 'deg)'; // Rotate the die multiple times
+    die.style.transform = 'rotateX(360deg) rotateY(360deg)'; // Rotate the die
 
-    setTimeout(function () {
-      // Update the text content of the front face with the rolled value
-      faces.forEach((face, index) => {
-        if (index === result - 1) {
-          face.style.display = 'flex';
-        } else {
-          face.style.display = 'none';
-        }
-      });
-      // Reset the rotation and transition properties after the animation
-      die.style.transition = '';
-      die.style.transform = '';
-      setRolling(false);
+    setTimeout(function() {
+        // Update the text content of the front face with the rolled value
+        die.querySelector('.front').textContent = faces[result].textContent;
+        // Reset the rotation and transition properties after the animation
+        die.style.transition = '';
+        die.style.transform = '';
     }, animationDuration);
 
     // Display the rolled value after a short delay to match the animation duration
-    setTimeout(function () {
-      alert('Rolled: ' + result); // Display result
+    setTimeout(function() {
+        alert('Rolled: ' + faces[result].textContent);
     }, animationDuration);
-  };
-
-  return (
-    <div className="container">
-      <Head>
-        <title>Dice Widget</title>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link href="https://fonts.googleapis.com/css2?family=Titania&display=swap" rel="stylesheet" />
-        <style>{`
-            .die-container {
-                perspective: 1000px; /* Perspective for 3D effect */
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .die {
-                width: 100px;
-                height: 100px;
-                margin: 10px;
-                position: relative;
-                transform-style: preserve-3d; /* Apply 3D transforms to children */
-                cursor: pointer;
-                transition: transform 1s ease-out; /* Transition for rolling animation */
-                background-color: transparent; /* Transparent background color */
-            }
-
-            .face {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                border: 2px solid black;
-                display: none;
-                justify-content: center;
-                align-items: center;
-                font-size: 24px;
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2)); /* Gradient for lighting effect */
-                color: white;
-                font-family: 'Titania', sans-serif; /* Use Titania font */
-                text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; /* Black outline */
-            }
-
-            .green { background-color: rgb(27, 214, 17); }
-            .blue { background-color: rgb(45, 72, 250); }
-            .red { background-color: rgb(245, 2, 2); }
-            .yellow { background-color: rgb(250, 221, 5); }
-
-            /* Set individual positions for each face */
-            .front { transform: translateZ(50px); }
-            .back { transform: rotateY(180deg) translateZ(50px); }
-            .right { transform: rotateY(90deg) translateZ(50px); }
-            .left { transform: rotateY(-90deg) translateZ(50px); }
-            .top { transform: rotateX(90deg) translateZ(50px); }
-            .bottom { transform: rotateX(-90deg) translateZ(50px); }
-
-            /* On hover effect */
-            .die:hover { transform: scale(1.1); /* Enlarge on hover */ }
-        `}</style>
-      </Head>
-
-      <main>
-        <Header title="Welcome to my app!" />
-        <div className="die-container">
-          {/* Green Die */}
-          <div className="die green" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">1</div>
-            <div className="face back">6</div>
-            <div className="face right">2</div>
-            <div className="face left">5</div>
-            <div className="face top">3</div>
-            <div className="face bottom">4</div>
-          </div>
-
-          {/* Blue Die */}
-          <div className="die blue" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">1</div>
-            <div className="face back">6</div>
-            <div className="face right">2</div>
-            <div className="face left">5</div>
-            <div className="face top">3</div>
-            <div className="face bottom">4</div>
-          </div>
-
-          {/* Red Die */}
-          <div className="die red" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">1</div>
-            <div className="face back">6</div>
-            <div className="face right">2</div>
-            <div className="face left">5</div>
-            <div className="face top">3</div>
-            <div className="face bottom">4</div>
-          </div>
-
-          {/* Yellow Die */}
-          <div className="die yellow" onClick={(e) => rollDie(e.target)}>
-            <div className="face front">1</div>
-            <div className="face back">6</div>
-            <div className="face right">2</div>
-            <div className="face left">5</div>
-            <div className="face top">3</div>
-            <div className="face bottom">4</div>
-          </div>
-        </div>
-      </main>
-
-      <Footer />
-    </div>
-  );
 }
+</script>
+</body>
+</html>
