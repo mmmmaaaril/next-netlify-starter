@@ -65,20 +65,28 @@ export default function Home() {
             }
 
             /* Faces of the die */
-            .green {
-                transform: rotateX(0deg) rotateY(0deg); /* Initial position */
+            .front {
+                transform: translateZ(50px); /* Move to front */
             }
 
-            .blue {
-                transform: rotateX(0deg) rotateY(90deg); /* Initial position */
+            .back {
+                transform: rotateY(180deg) translateZ(50px); /* Move to back */
             }
 
-            .red {
-                transform: rotateX(0deg) rotateY(180deg); /* Initial position */
+            .right {
+                transform: rotateY(90deg) translateZ(50px); /* Move to right */
             }
 
-            .yellow {
-                transform: rotateX(0deg) rotateY(-90deg); /* Initial position */
+            .left {
+                transform: rotateY(-90deg) translateZ(50px); /* Move to left */
+            }
+
+            .top {
+                transform: rotateX(90deg) translateZ(50px); /* Move to top */
+            }
+
+            .bottom {
+                transform: rotateX(-90deg) translateZ(50px); /* Move to bottom */
             }
         `}</style>
       </Head>
