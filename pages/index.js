@@ -5,12 +5,12 @@ import Footer from '@components/Footer';
 export default function Home() {
   const rollDie = (die) => {
     var result = Math.floor(Math.random() * 6) + 1; // Generate a random side index
-    var animationDuration = 1000; // Duration of the rolling animation in milliseconds
+    var animationDuration = 2000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
 
     // Apply rolling animation
     die.style.transition = 'transform ' + animationDuration / 1000 + 's ease-out';
-    die.style.transform = 'rotateX(360deg) rotateY(360deg)'; // Rotate the die
+    die.style.transform = 'rotateX(' + (360 * 5) + 'deg) rotateY(' + (360 * 5) + 'deg)'; // Rotate the die multiple times
 
     setTimeout(function() {
         // Update the text content of the front face with the rolled value
@@ -53,8 +53,9 @@ export default function Home() {
                 position: relative;
                 transform-style: preserve-3d; /* Apply 3D transforms to children */
                 cursor: pointer;
-                transition: transform 1s ease-out; /* Transition for rolling animation */
-                background-color: #fff;
+                transition: transform 2s cubic-bezier(0.6, 0.05, 0.28, 0.91); /* Custom cubic-bezier for more realistic tumbling */
+                background-color: #fff; /* Default background color */
+                border-radius: 10px; /* Rounded corners */
             }
 
             .face {
