@@ -62,14 +62,12 @@ export default function Home() {
                 width: 100%;
                 height: 100%;
                 border: 2px solid black;
-                display: none; /* Initially hide all faces */
+                display: flex;
                 justify-content: center;
                 align-items: center;
                 font-size: 24px;
                 background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2)); /* Gradient for lighting effect */
-                transform-style: preserve-3d; /* Preserve 3D effect */
-                backface-visibility: hidden; /* Hide back face during rotation */
-                color: white; /* White text */
+                color: white;
                 font-family: 'Titania', sans-serif; /* Use Titania font */
                 text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; /* Black outline */
             }
