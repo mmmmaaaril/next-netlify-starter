@@ -84,6 +84,25 @@ export default function Home() {
                 background-color: #ffd700; /* Yellow */
             }
 
+            .front {
+              transform: translateZ(50px);
+            }
+            .back {
+              transform: rotateY(180deg) translateZ(50px);
+            }
+            .right {
+              transform: rotateY(90deg) translateZ(50px);
+            }
+            .left {
+              transform: rotateY(-90deg) translateZ(50px);
+            }
+            .top {
+              transform: rotateX(90deg) translateZ(50px);
+            }
+            .bottom {
+              transform: rotateX(-90deg) translateZ(50px);
+            }
+
             /* On hover effect */
             .die:hover {
                 transform: scale(1.1); /* Enlarge on hover */
