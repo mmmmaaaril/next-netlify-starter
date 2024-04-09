@@ -77,7 +77,7 @@ export default function Home() {
                 color: white;
                 font-family: 'Roboto Serif', serif; /* Use Roboto Serif Black font */
                 text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Black outline */
-            }
+              }
 
             .green { background-color: rgb(27, 214, 17); }
             .blue { background-color: rgb(45, 72, 250); }
@@ -91,9 +91,6 @@ export default function Home() {
             .left { transform: rotateY(-90deg) translateZ(50px); }
             .top { transform: rotateX(90deg) translateZ(50px); }
             .bottom { transform: rotateX(-90deg) translateZ(50px); }
-
-            /* On hover effect */
-            .die:hover { transform: scale(1.1); /* Enlarge on hover */ }
         `}</style>
       </Head>
 
