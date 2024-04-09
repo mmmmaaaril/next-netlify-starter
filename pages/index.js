@@ -4,7 +4,7 @@ import Footer from '@components/Footer';
 
 export default function Home() {
   const rollDie = (die) => {
-    var result = Math.floor(Math.random() * 6); // Generate a random side index
+    var result = Math.floor(Math.random() * 6) + 1; // Generate a random side index
     var animationDuration = 1000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
 
@@ -15,7 +15,7 @@ export default function Home() {
     setTimeout(function() {
         // Update the text content of the front face with the rolled value
         faces.forEach((face, index) => {
-          if (index === result) {
+          if (index === result - 1) {
             face.style.display = 'flex';
           } else {
             face.style.display = 'none';
@@ -28,7 +28,7 @@ export default function Home() {
 
     // Display the rolled value after a short delay to match the animation duration
     setTimeout(function() {
-        alert('Rolled: ' + (result + 1)); // Display result (adding 1 to match dice numbering)
+        alert('Rolled: ' + result); // Display result
     }, animationDuration);
   };
 
@@ -68,7 +68,7 @@ export default function Home() {
                 background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2)); /* Gradient for lighting effect */
                 transform-style: preserve-3d; /* Preserve 3D effect */
                 backface-visibility: hidden; /* Hide back face during rotation */
-                display: none; // Initially hide all faces
+                display: flex; // Display all faces initially
             }
 
             /* Faces of the die */
