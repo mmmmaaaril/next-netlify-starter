@@ -69,6 +69,9 @@ export default function Home() {
                 background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.2)); /* Gradient for lighting effect */
                 transform-style: preserve-3d; /* Preserve 3D effect */
                 backface-visibility: hidden; /* Hide back face during rotation */
+                color: white; /* White text */
+                font-family: 'Titania', sans-serif; /* Use Titania font */
+                text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black; /* Black outline */
             }
 
             .green { background-color: rgb(27, 214, 17); }
