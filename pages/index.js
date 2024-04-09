@@ -68,7 +68,24 @@ export default function Home() {
                 color: black;
                 transform: rotateY(0deg) translateZ(50px);
             }
-            /* other colors and faces here */
+
+            .blue .front {
+                background-color: #00a0d6; /* Blue */
+                color: black;
+                transform: rotateY(0deg) translateZ(50px);
+            }
+
+            .red .front {
+                background-color: #d60000; /* Red */
+                color: black;
+                transform: rotateY(0deg) translateZ(50px);
+            }
+
+            .yellow .front {
+                background-color: #ffd700; /* Yellow */
+                color: black;
+                transform: rotateY(0deg) translateZ(50px);
+            }
         `}</style>
       </Head>
 
