@@ -1,9 +1,14 @@
 import Head from 'next/head';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
+import { useState } from 'react';
 
 export default function Home() {
+  const [rolling, setRolling] = useState(false);
+
   const rollDie = (die) => {
+    if (rolling) return; // Prevent rolling while animation is in progress
+    setRolling(true);
     var result = Math.floor(Math.random() * 6) + 1; // Generate a random side index
     var animationDuration = 2000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
@@ -12,23 +17,24 @@ export default function Home() {
     die.style.transition = 'transform ' + animationDuration / 1000 + 's cubic-bezier(0.6, 0.05, 0.28, 0.91)'; // Use cubic-bezier for realistic tumbling
     die.style.transform = 'rotateX(' + (360 * 5) + 'deg) rotateY(' + (360 * 5) + 'deg)'; // Rotate the die multiple times
 
-    setTimeout(function() {
-        // Update the text content of the front face with the rolled value
-        faces.forEach((face, index) => {
-          if (index === result - 1) {
-            face.style.display = 'flex';
-          } else {
-            face.style.display = 'none';
-          }
-        });
-        // Reset the rotation and transition properties after the animation
-        die.style.transition = '';
-        die.style.transform = '';
+    setTimeout(function () {
+      // Update the text content of the front face with the rolled value
+      faces.forEach((face, index) => {
+        if (index === result - 1) {
+          face.style.display = 'flex';
+        } else {
+          face.style.display = 'none';
+        }
+      });
+      // Reset the rotation and transition properties after the animation
+      die.style.transition = '';
+      die.style.transform = '';
+      setRolling(false);
     }, animationDuration);
 
     // Display the rolled value after a short delay to match the animation duration
-    setTimeout(function() {
-        alert('Rolled: ' + result); // Display result
+    setTimeout(function () {
+      alert('Rolled: ' + result); // Display result
     }, animationDuration);
   };
 
@@ -38,6 +44,7 @@ export default function Home() {
         <title>Dice Widget</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
         <style>{`
             .die-container {
                 perspective: 1000px; /* Perspective for 3D effect */
@@ -54,7 +61,7 @@ export default function Home() {
                 transform-style: preserve-3d; /* Apply 3D transforms to children */
                 cursor: pointer;
                 transition: transform 2s cubic-bezier(0.6, 0.05, 0.28, 0.91); /* Custom cubic-bezier for more realistic tumbling */
-                background-color: #fff; /* Default background color */
+                background-color: transparent; /* Transparent background color */
             }
 
             .face {
@@ -62,7 +69,7 @@ export default function Home() {
                 width: 100%;
                 height: 100%;
                 border: 2px solid black;
-                display: flex;
+                display: none;
                 justify-content: center;
                 align-items: center;
                 font-size: 24px;
