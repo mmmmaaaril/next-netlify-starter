@@ -9,7 +9,7 @@ export default function Home() {
     var faces = die.querySelectorAll('.face');
 
     // Apply rolling animation
-    die.style.transition = 'transform ' + animationDuration / 1000 + 's ease-out';
+    die.style.transition = 'transform ' + animationDuration / 1000 + 's cubic-bezier(0.6, 0.05, 0.28, 0.91)'; // Use cubic-bezier for realistic tumbling
     die.style.transform = 'rotateX(' + (360 * 5) + 'deg) rotateY(' + (360 * 5) + 'deg)'; // Rotate the die multiple times
 
     setTimeout(function() {
@@ -55,7 +55,6 @@ export default function Home() {
                 cursor: pointer;
                 transition: transform 2s cubic-bezier(0.6, 0.05, 0.28, 0.91); /* Custom cubic-bezier for more realistic tumbling */
                 background-color: #fff; /* Default background color */
-                border-radius: 10px; /* Rounded corners */
             }
 
             .face {
@@ -63,7 +62,7 @@ export default function Home() {
                 width: 100%;
                 height: 100%;
                 border: 2px solid black;
-                display: flex;
+                display: none; /* Initially hide all faces */
                 justify-content: center;
                 align-items: center;
                 font-size: 24px;
@@ -72,43 +71,21 @@ export default function Home() {
                 backface-visibility: hidden; /* Hide back face during rotation */
             }
 
-            /* Faces of the die */
-            .green {
-                background-color: rgb(27, 214, 17); /* Green */
-            }
-            .blue {
-                background-color: rgb(45, 72, 250); /* Blue */
-            }
-            .red {
-                background-color: rgb(245, 2, 2); /* Red */
-            }
-            .yellow {
-                background-color: rgb(250, 221, 5); /* Yellow */
-            }
+            .green { background-color: rgb(27, 214, 17); }
+            .blue { background-color: rgb(45, 72, 250); }
+            .red { background-color: rgb(245, 2, 2); }
+            .yellow { background-color: rgb(250, 221, 5); }
 
-            .front {
-              transform: translateZ(50px);
-            }
-            .back {
-              transform: rotateY(180deg) translateZ(50px);
-            }
-            .right {
-              transform: rotateY(90deg) translateZ(50px);
-            }
-            .left {
-              transform: rotateY(-90deg) translateZ(50px);
-            }
-            .top {
-              transform: rotateX(90deg) translateZ(50px);
-            }
-            .bottom {
-              transform: rotateX(-90deg) translateZ(50px);
-            }
+            /* Set individual positions for each face */
+            .front { transform: translateZ(50px); }
+            .back { transform: rotateY(180deg) translateZ(50px); }
+            .right { transform: rotateY(90deg) translateZ(50px); }
+            .left { transform: rotateY(-90deg) translateZ(50px); }
+            .top { transform: rotateX(90deg) translateZ(50px); }
+            .bottom { transform: rotateX(-90deg) translateZ(50px); }
 
             /* On hover effect */
-            .die:hover {
-                transform: scale(1.1); /* Enlarge on hover */
-            }
+            .die:hover { transform: scale(1.1); /* Enlarge on hover */ }
         `}</style>
       </Head>
 
