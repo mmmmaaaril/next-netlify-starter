@@ -13,29 +13,35 @@ export default function Home() {
     var animationDuration = 2000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
 
+    // Reset rotation
+    die.style.transition = '';
+    die.style.transform = '';
+
     // Apply rolling animation
-    die.style.transition = 'transform ' + animationDuration / 1000 + 's ease-out'; // Adjust transition duration
-    die.style.transform = 'rotateX(' + (360 * 5) + 'deg) rotateY(' + (360 * 5) + 'deg)'; // Rotate the die multiple times
-
     setTimeout(function () {
-      // Reset the rotation and transition properties after the animation
-      die.style.transition = '';
-      die.style.transform = '';
+      die.style.transition = 'transform ' + animationDuration / 1000 + 's ease-out'; // Adjust transition duration
+      die.style.transform = 'rotateX(' + (360 * 5) + 'deg) rotateY(' + (360 * 5) + 'deg)'; // Rotate the die multiple times
 
-      // Hide all faces
-      faces.forEach((face) => {
-        face.style.opacity = 0; // Hide the faces
-      });
-
-      // Show the front face with the rolled value
-      die.querySelector('.front').textContent = result;
-      die.querySelector('.front').style.opacity = 1;
-
-      // Display the rolled value after a short delay to match the animation duration
       setTimeout(function () {
-        setRolling(false);
-      }, 500); // Delay to show the result after animation
-    }, animationDuration);
+        // Reset the rotation and transition properties after the animation
+        die.style.transition = '';
+        die.style.transform = '';
+
+        // Hide all faces
+        faces.forEach((face) => {
+          face.style.opacity = 0; // Hide the faces
+        });
+
+        // Show the front face with the rolled value
+        die.querySelector('.front').textContent = result;
+        die.querySelector('.front').style.opacity = 1;
+
+        // Display the rolled value after a short delay to match the animation duration
+        setTimeout(function () {
+          setRolling(false);
+        }, 500); // Delay to show the result after animation
+      }, animationDuration);
+    }, 10); // A small delay before starting the animation
   };
 
   return (
