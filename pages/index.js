@@ -26,6 +26,7 @@ export default function Home() {
       faces.forEach((face, index) => {
         if (index === result - 1) {
           face.style.display = 'flex';
+          face.textContent = result; // Display the result on the front face
         } else {
           face.style.display = 'none';
         }
