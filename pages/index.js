@@ -18,6 +18,10 @@ export default function Home() {
     die.style.transform = 'rotateX(' + (360 * 5) + 'deg) rotateY(' + (360 * 5) + 'deg)'; // Rotate the die multiple times
 
     setTimeout(function () {
+      // Reset the rotation and transition properties after the animation
+      die.style.transition = '';
+      die.style.transform = '';
+      
       // Update the text content of the front face with the rolled value
       faces.forEach((face, index) => {
         if (index === result - 1) {
@@ -26,15 +30,12 @@ export default function Home() {
           face.style.display = 'none';
         }
       });
-      // Reset the rotation and transition properties after the animation
-      die.style.transition = '';
-      die.style.transform = '';
-      setRolling(false);
-    }, animationDuration);
 
-    // Display the rolled value after a short delay to match the animation duration
-    setTimeout(function () {
-      alert('Rolled: ' + result); // Display result
+      // Display the rolled value after a short delay to match the animation duration
+      setTimeout(function () {
+        alert('Rolled: ' + result); // Display result
+        setRolling(false);
+      }, 500); // Delay to show the result after animation
     }, animationDuration);
   };
 
