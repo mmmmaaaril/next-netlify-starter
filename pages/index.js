@@ -102,46 +102,46 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header title="Welcome to my app!" />
+        <Header title="Dice Game Simulator" />
         <div className="die-container">
           {/* Green Die */}
           <div className="die" onClick={(e) => rollDie(e.currentTarget)}>
-            <div className="face front" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>1</div>
-            <div className="face back" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>6</div>
-            <div className="face right" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>2</div>
-            <div className="face left" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>5</div>
-            <div className="face top" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>3</div>
+            <div className="face front" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>0</div>
+            <div className="face back" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>0</div>
+            <div className="face right" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>4</div>
+            <div className="face left" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>4</div>
+            <div className="face top" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>4</div>
             <div className="face bottom" style={{ backgroundColor: 'rgb(27, 214, 17)' }}>4</div>
           </div>
 
           {/* Blue Die */}
           <div className="die" onClick={(e) => rollDie(e.currentTarget)}>
-            <div className="face front" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>1</div>
-            <div className="face back" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>6</div>
-            <div className="face right" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>2</div>
-            <div className="face left" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>5</div>
+            <div className="face front" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>3</div>
+            <div className="face back" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>3</div>
+            <div className="face right" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>3</div>
+            <div className="face left" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>3</div>
             <div className="face top" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>3</div>
-            <div className="face bottom" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>4</div>
+            <div className="face bottom" style={{ backgroundColor: 'rgb(45, 72, 250)' }}>3</div>
           </div>
 
           {/* Red Die */}
           <div className="die" onClick={(e) => rollDie(e.currentTarget)}>
-            <div className="face front" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>1</div>
-            <div className="face back" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>6</div>
-            <div className="face right" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>2</div>
-            <div className="face left" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>5</div>
-            <div className="face top" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>3</div>
-            <div className="face bottom" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>4</div>
+            <div className="face front" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>2</div>
+            <div className="face back" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>2</div>
+            <div className="face right" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>6</div>
+            <div className="face left" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>6</div>
+            <div className="face top" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>2</div>
+            <div className="face bottom" style={{ backgroundColor: 'rgb(245, 2, 2)' }}>2</div>
           </div>
 
           {/* Yellow Die */}
           <div className="die" onClick={(e) => rollDie(e.currentTarget)}>
             <div className="face front" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>1</div>
-            <div className="face back" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>6</div>
-            <div className="face right" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>2</div>
+            <div className="face back" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>1</div>
+            <div className="face right" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>1</div>
             <div className="face left" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>5</div>
-            <div className="face top" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>3</div>
-            <div className="face bottom" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>4</div>
+            <div className="face top" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>5</div>
+            <div className="face bottom" style={{ backgroundColor: 'rgb(250, 221, 5)' }}>5</div>
           </div>
         </div>
       </main>
