@@ -21,16 +21,15 @@ export default function Home() {
       // Reset the rotation and transition properties after the animation
       die.style.transition = '';
       die.style.transform = '';
-      
-      // Update the text content of the front face with the rolled value
-      faces.forEach((face, index) => {
-        if (index === result - 1) {
-          face.style.display = 'flex';
-          face.textContent = result; // Display the result on the front face
-        } else {
-          face.style.display = 'none';
-        }
+
+      // Hide all faces
+      faces.forEach((face) => {
+        face.style.opacity = 0; // Hide the faces
       });
+
+      // Show the front face with the rolled value
+      die.querySelector('.front').textContent = result;
+      die.querySelector('.front').style.opacity = 1;
 
       // Display the rolled value after a short delay to match the animation duration
       setTimeout(function () {
@@ -78,6 +77,7 @@ export default function Home() {
                 text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Black outline */
                 opacity: 1; /* Ensure opacity is set to 1 */
                 display: flex; /* Ensure faces are always visible */
+                backface-visibility: hidden; /* Hide back face during rotation */
             }
 
             /* Set individual positions for each face */
