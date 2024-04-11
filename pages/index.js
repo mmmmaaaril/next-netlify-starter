@@ -13,6 +13,11 @@ export default function Home() {
     var animationDuration = 2000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
 
+    // Reset opacity of all faces
+    faces.forEach((face) => {
+      face.style.opacity = 1;
+    });
+
     // Reset rotation
     die.style.transition = '';
     die.style.transform = '';
