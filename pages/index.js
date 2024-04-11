@@ -10,28 +10,32 @@ export default function Home() {
     if (rolling) return; // Prevent rolling while animation is in progress
     setRolling(true);
     var result = Math.floor(Math.random() * 6) + 1; // Generate a random side index
-    var animationDuration = 2000; // Duration of the rolling animation in milliseconds
+    var animationDuration = 4000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
 
     // Apply rolling animation
     die.style.transition = 'transform ' + animationDuration / 1000 + 's ease-out'; // Adjust transition duration
     die.style.transform = 'rotateX(' + (360 * 5) + 'deg) rotateY(' + (360 * 5) + 'deg)'; // Rotate the die multiple times
 
-    // Update the text content of the front face with the rolled value
-    faces.forEach((face, index) => {
-      if (index === result - 1) {
-        face.style.display = 'flex';
-      } else {
-        face.style.display = 'none';
-      }
-    });
-
-    // Display the rolled value after a short delay to match the animation duration
     setTimeout(function () {
       // Reset the rotation and transition properties after the animation
       die.style.transition = '';
       die.style.transform = '';
-      setRolling(false); // Reset rolling state
+      
+      // Update the text content of the front face with the rolled value
+      faces.forEach((face, index) => {
+        if (index === result - 1) {
+          face.style.display = 'flex';
+        } else {
+          face.style.display = 'none';
+        }
+      });
+
+      // Display the rolled value after a short delay to match the animation duration
+      setTimeout(function () {
+        alert('Rolled: ' + result); // Display result
+        setRolling(false);
+      }, 500); // Delay to show the result after animation
     }, animationDuration);
   };
 
