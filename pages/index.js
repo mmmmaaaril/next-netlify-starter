@@ -121,7 +121,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header title="Welcome to my app!" />
+        <Header title="MATH1234 Dice Game Simulator" />
         <div className="die-container">
           {/* Green Die */}
           <div className="die green" onClick={(e) => rollDie(e.currentTarget)}>
