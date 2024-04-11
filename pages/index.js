@@ -61,7 +61,6 @@ export default function Home() {
                 position: relative;
                 transform-style: preserve-3d; /* Apply 3D transforms to children */
                 cursor: pointer;
-                transition: transform 4s ease-out; /* Transition for rolling animation */
                 background-color: transparent; /* Transparent background color */
             }
 
@@ -78,6 +77,7 @@ export default function Home() {
                 font-family: 'Roboto Serif', serif; /* Use Roboto Serif Black font */
                 text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Black outline */
                 opacity: 1; /* Ensure opacity is set to 1 */
+                display: none; /* Initially hide all faces */
             }
 
             /* Set individual positions for each face */
