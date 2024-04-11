@@ -10,7 +10,7 @@ export default function Home() {
     if (rolling) return; // Prevent rolling while animation is in progress
     setRolling(true);
     var result = Math.floor(Math.random() * 6) + 1; // Generate a random side index
-    var animationDuration = 4000; // Duration of the rolling animation in milliseconds
+    var animationDuration = 2000; // Duration of the rolling animation in milliseconds
     var faces = die.querySelectorAll('.face');
 
     // Apply rolling animation
@@ -33,7 +33,6 @@ export default function Home() {
 
       // Display the rolled value after a short delay to match the animation duration
       setTimeout(function () {
-        alert('Rolled: ' + result); // Display result
         setRolling(false);
       }, 500); // Delay to show the result after animation
     }, animationDuration);
@@ -77,7 +76,7 @@ export default function Home() {
                 font-family: 'Roboto Serif', serif; /* Use Roboto Serif Black font */
                 text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black; /* Black outline */
                 opacity: 1; /* Ensure opacity is set to 1 */
-                display: none; /* Initially hide all faces */
+                display: flex; /* Ensure faces are always visible */
             }
 
             /* Set individual positions for each face */
